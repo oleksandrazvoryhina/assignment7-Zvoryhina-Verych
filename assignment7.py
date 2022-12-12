@@ -21,9 +21,12 @@ if args.medals:
         for line in file:
             data = line.strip().split("\t")
             if data[7] == args.country and data[9] == args.year:
-                if output_file is not None and row < 10:
+                if row < 10:
                     row += 1
-                    output_file.write(f"{data[1]}, {data[-2]}, {data[-1]}\n")
+                    out_line = f"{data[1]}, {data[-2]}, {data[-1]}\n"
+                    print(out_line, end="")
+                    if output_file is not None:
+                        output_file.write(out_line)
 
 
 
